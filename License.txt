@@ -1,0 +1,9 @@
+Copyright (c) 2026 Atharva Borkar
+
+All rights reserved.
+
+This code and the project it contains may not be copied, modified,
+distributed, or used in any form without explicit written permission
+from the author.
+
+The project may be viewed for educational and evaluation purposes only.

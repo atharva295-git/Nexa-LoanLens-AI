@@ -1,4 +1,4 @@
-# LoanFair — Fairness-Aware Loan Approval System
+# NEXA-LOANLENS-AI — Fairness-Aware Loan Approval System
 
 A machine learning system that predicts loan approvals, detects gender bias,
 mitigates it using Reweighing, and explains decisions with counterfactuals.
