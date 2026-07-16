@@ -23,65 +23,61 @@ st.set_page_config(page_title="NexaBank", page_icon="🏦",
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
 
-html, body, [class*="css"] {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-}
+html, body, [class*="css"] { font-family: 'Inter', sans-serif !important; }
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="collapsedControl"] { display: none !important; }
 
-/* ── Page background ── */
+/* Page background - emerald green tinted */
 .stApp {
     background: #f0fdf4;
-    background-image: radial-gradient(ellipse at 20% 20%, rgba(5,150,105,0.06) 0%, transparent 50%),
-                      radial-gradient(ellipse at 80% 80%, rgba(16,185,129,0.05) 0%, transparent 50%);
+    background-image:
+        radial-gradient(ellipse at 15% 20%, rgba(5,150,105,.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 80%, rgba(16,185,129,.04) 0%, transparent 50%);
 }
-
-/* ── Remove streamlit padding ── */
 .block-container { padding: 1.5rem 2rem !important; }
 
-/* ── Buttons ── */
+/* Buttons - all green themed */
 .stButton button {
+    font-family: 'Manrope', sans-serif !important;
     border-radius: 12px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     font-size: .85rem !important;
     letter-spacing: .01em !important;
-    transition: all .2s !important;
+    transition: all .2s ease !important;
     padding: .5rem 1.2rem !important;
 }
 .stButton button[kind="primary"] {
     background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
     color: #fff !important;
     border: none !important;
-    box-shadow: 0 4px 20px rgba(5,150,105,.4) !important;
+    box-shadow: 0 4px 20px rgba(5,150,105,.35) !important;
 }
 .stButton button[kind="primary"]:hover {
-    transform: translateY(-1px) !important;
-    box-shadow: 0 8px 28px rgba(5,150,105,.5) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 28px rgba(5,150,105,.45) !important;
 }
 .stButton button[kind="secondary"] {
-    background: rgba(255,255,255,0.8) !important;
-    backdrop-filter: blur(10px) !important;
-    color: #374151 !important;
-    border: 1.5px solid rgba(226,232,240,0.8) !important;
+    background: rgba(255,255,255,.9) !important;
+    color: #065f46 !important;
+    border: 1.5px solid #d1fae5 !important;
 }
-.stButton button:disabled { opacity: .45 !important; }
+.stButton button:disabled { opacity: .4 !important; }
 
-/* ── Inputs ── */
+/* Inputs - green accents */
 .stSelectbox > div > div,
 .stNumberInput input {
-    border: 1.5px solid #e2e8f0 !important;
+    border: 1.5px solid #d1fae5 !important;
     border-radius: 12px !important;
-    background: rgba(255,255,255,0.9) !important;
-    backdrop-filter: blur(10px) !important;
-    color: #111827 !important;
+    background: rgba(255,255,255,.95) !important;
+    color: #022c22 !important;
     font-weight: 500 !important;
     transition: border-color .2s !important;
 }
 .stSelectbox > div > div:focus-within,
 .stNumberInput input:focus {
-    border-color: #10b981 !important;
+    border-color: #059669 !important;
     box-shadow: 0 0 0 3px rgba(5,150,105,.12) !important;
 }
 label {
@@ -91,14 +87,13 @@ label {
     letter-spacing: .01em !important;
 }
 
-/* ── Metrics ── */
+/* Metrics - green tinted */
 div[data-testid="metric-container"] {
-    background: rgba(255,255,255,0.85) !important;
-    backdrop-filter: blur(20px) !important;
+    background: rgba(255,255,255,.92) !important;
     border-radius: 16px !important;
-    border: 1px solid rgba(255,255,255,0.9) !important;
+    border: 1px solid #d1fae5 !important;
     padding: 1.1rem !important;
-    box-shadow: 0 2px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04) !important;
+    box-shadow: 0 2px 12px rgba(5,150,105,.08) !important;
 }
 div[data-testid="metric-container"] label {
     color: #6b7280 !important;
@@ -108,34 +103,22 @@ div[data-testid="metric-container"] label {
     text-transform: uppercase !important;
 }
 div[data-testid="stMetricValue"] > div {
-    color: #111827 !important;
+    color: #022c22 !important;
     font-size: 1.55rem !important;
     font-weight: 800 !important;
 }
-div[data-testid="stMetricDelta"] { color: #9ca3af !important; font-size: .72rem !important; }
+div[data-testid="stMetricDelta"] { color: #6b7280 !important; font-size: .72rem !important; }
 
-/* ── Expander ── */
+/* Expander */
 .streamlit-expanderHeader {
-    background: rgba(255,255,255,0.7) !important;
+    background: rgba(255,255,255,.85) !important;
     border-radius: 12px !important;
-    border: 1px solid rgba(226,232,240,0.8) !important;
+    border: 1px solid #d1fae5 !important;
     font-weight: 600 !important;
-    color: #374151 !important;
+    color: #065f46 !important;
 }
-hr { border-color: rgba(226,232,240,0.6) !important; }
-
-/* ── Alerts ── */
+hr { border-color: rgba(209,250,229,.7) !important; }
 .stAlert { border-radius: 12px !important; }
-
-/* ── Card glass effect ── */
-.glass-card {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.9);
-    border-radius: 20px;
-    box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -223,7 +206,7 @@ pipe,enc,X_te_raw,y_te,s_te,fr,X_tr_raw,y_tr = load_all()
 def light_fig(w=6,h=4):
     fig,ax = plt.subplots(figsize=(w,h))
     fig.patch.set_facecolor("none")
-    ax.set_facecolor("#f0fdf4")
+    ax.set_facecolor("#f8faff")
     return fig,ax
 
 
@@ -234,446 +217,105 @@ if st.session_state.landing:
 
     st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
-
-.stApp { background:#f0fdf4; font-family:'Inter',sans-serif!important; }
-.block-container { padding:0 2rem 2rem!important; max-width:100%!important; }
-[data-testid="collapsedControl"] { display:none!important; }
-#MainMenu,footer,header { visibility:hidden; }
-
-.stButton button {
-    font-family:'Manrope',sans-serif!important;
-    border-radius:12px!important; font-weight:700!important;
-    font-size:.85rem!important; letter-spacing:.01em!important;
-    transition:all .22s ease!important;
-}
-.stButton button[kind="primary"] {
-    background:linear-gradient(135deg,#059669,#047857)!important;
-    border:none!important; color:#fff!important;
-    box-shadow:0 4px 20px rgba(5,150,105,.35)!important;
-}
-.stButton button[kind="primary"]:hover {
-    transform:translateY(-2px)!important;
-    box-shadow:0 10px 32px rgba(5,150,105,.45)!important;
-}
-.stButton button[kind="secondary"] {
-    background:rgba(255,255,255,.9)!important;
-    border:1.5px solid #d1fae5!important; color:#065f46!important;
-}
-.stButton button:disabled { opacity:.38!important; }
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
+.stApp{background:#f0fdf4;}
+.block-container{padding:0 2rem 2rem!important;max-width:100%!important;}
+[data-testid="collapsedControl"]{display:none!important;}
+#MainMenu,footer,header{visibility:hidden;}
+.stButton button{font-family:Manrope,sans-serif!important;border-radius:12px!important;font-weight:700!important;transition:all .2s!important;}
+.stButton button[kind="primary"]{background:linear-gradient(135deg,#059669,#047857)!important;border:none!important;color:#fff!important;box-shadow:0 4px 20px rgba(5,150,105,.35)!important;}
+.stButton button[kind="primary"]:hover{transform:translateY(-2px)!important;}
+.stButton button[kind="secondary"]{background:#fff!important;border:1.5px solid #d1fae5!important;color:#065f46!important;}
+.stButton button:disabled{opacity:.4!important;}
 </style>
 """, unsafe_allow_html=True)
 
-    # ── NAVBAR ────────────────────────────────────────────────
-    nav_l, nav_m, nav_r = st.columns([1.4, 2.2, 1.4])
-
-    with nav_l:
-        st.markdown("""
-<div style="display:flex;align-items:center;gap:11px;padding:.85rem 0">
-  <div style="width:40px;height:40px;border-radius:12px;
-       background:linear-gradient(145deg,#059669,#047857);
-       display:flex;align-items:center;justify-content:center;
-       font-size:1.15rem;box-shadow:0 4px 16px rgba(5,150,105,.3)">🏦</div>
-  <div>
-    <div style="font-family:'Manrope',sans-serif;font-size:1.1rem;
-                font-weight:800;color:#022c22;letter-spacing:-.4px">NexaBank</div>
-    <div style="font-size:.58rem;color:#6b7280;font-weight:600;
-                letter-spacing:.1em;text-transform:uppercase">Financial Services</div>
-  </div>
-</div>""", unsafe_allow_html=True)
-
-    with nav_m:
-        st.markdown("""
-<div style="display:flex;justify-content:center;align-items:center;
-     gap:2.5rem;padding:1rem 0">
-  <span style="font-size:.83rem;color:#374151;font-weight:600;cursor:pointer">Products</span>
-  <span style="font-size:.83rem;color:#374151;font-weight:600;cursor:pointer">Rates</span>
-  <span style="font-size:.83rem;color:#374151;font-weight:600;cursor:pointer">About</span>
-  <span style="font-size:.83rem;color:#374151;font-weight:600;cursor:pointer">Support</span>
-</div>""", unsafe_allow_html=True)
-
-    with nav_r:
-        st.markdown("""
-<div style="display:flex;justify-content:flex-end;align-items:center;
-     gap:.8rem;padding:.85rem 0">
-  <span style="font-size:.82rem;font-weight:600;color:#374151;
-               padding:7px 16px;cursor:pointer">Log In</span>
-  <span style="background:linear-gradient(135deg,#059669,#047857);
-       color:#fff;font-size:.82rem;font-weight:700;
-       padding:8px 20px;border-radius:100px;cursor:pointer;
-       box-shadow:0 4px 14px rgba(5,150,105,.3)">Open Account</span>
-</div>""", unsafe_allow_html=True)
+    # NAVBAR
+    n1, n2, n3 = st.columns([1.4, 2.2, 1.4])
+    with n1:
+        st.markdown("""<div style="display:flex;align-items:center;gap:11px;padding:.85rem 0"><div style="width:40px;height:40px;border-radius:12px;background:linear-gradient(145deg,#059669,#047857);display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 4px 16px rgba(5,150,105,.3)">&#x1F3E6;</div><div><div style="font-family:Manrope,sans-serif;font-size:1.1rem;font-weight:800;color:#022c22;letter-spacing:-.4px">NexaBank</div><div style="font-size:.58rem;color:#6b7280;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Financial Services</div></div></div>""", unsafe_allow_html=True)
+    with n2:
+        st.markdown("""<div style="display:flex;justify-content:center;align-items:center;gap:2.5rem;padding:1rem 0"><span style="font-size:.83rem;color:#374151;font-weight:600">Products</span><span style="font-size:.83rem;color:#374151;font-weight:600">Rates</span><span style="font-size:.83rem;color:#374151;font-weight:600">About</span><span style="font-size:.83rem;color:#374151;font-weight:600">Support</span></div>""", unsafe_allow_html=True)
+    with n3:
+        st.markdown("""<div style="display:flex;justify-content:flex-end;align-items:center;gap:.8rem;padding:.85rem 0"><span style="font-size:.82rem;font-weight:600;color:#374151;padding:7px 16px;cursor:pointer">Log In</span><span style="background:linear-gradient(135deg,#059669,#047857);color:#fff;font-size:.82rem;font-weight:700;padding:8px 20px;border-radius:100px;cursor:pointer;box-shadow:0 4px 14px rgba(5,150,105,.3)">Open Account</span></div>""", unsafe_allow_html=True)
 
     st.markdown("<div style='height:4px'></div>", unsafe_allow_html=True)
 
-    # ── HERO ──────────────────────────────────────────────────
-    # Entire hero rendered in ONE st.markdown call so the outer
-    # wrapper div actually contains everything (Streamlit renders
-    # each st.markdown call as its own isolated HTML fragment, so
-    # splitting an open <div> across multiple calls breaks nesting
-    # and lets content spill outside the dark background).
-    st.markdown("""
-<div style="background:linear-gradient(160deg,#022c22 0%,#064e3b 28%,#065f46 58%,#022c22 100%);border-radius:28px;padding:5.5rem 4rem 4.5rem;margin-bottom:2.5rem;position:relative;overflow:hidden;text-align:center">
-<div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:180px;height:3px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,transparent,#f59e0b,transparent)"></div>
-<div style="position:absolute;top:-130px;left:-100px;width:520px;height:520px;border-radius:50%;opacity:.3;filter:blur(80px);background:radial-gradient(circle,#10b981,transparent 65%)"></div>
-<div style="position:absolute;bottom:-100px;right:-80px;width:460px;height:460px;border-radius:50%;opacity:.22;filter:blur(80px);background:radial-gradient(circle,#f59e0b,transparent 65%)"></div>
-<div style="position:relative;z-index:2">
-<div style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.22);padding:6px 20px;border-radius:100px;margin-bottom:2rem">
-<div style="width:7px;height:7px;border-radius:50%;background:#34d399"></div>
-<span style="font-size:.7rem;font-weight:700;color:#6ee7b7;letter-spacing:.1em;text-transform:uppercase">AI-Powered Banking</span>
-</div>
-<div style="text-align:center">
-<div style="font-family:sans-serif;font-size:3.8rem;font-weight:900;color:#fff;margin:0 0 1rem;letter-spacing:-2px;line-height:1.08">
-Banking that explains
-</div>
-<div style="font-family:sans-serif;font-size:3.8rem;font-weight:900;margin:0 0 1rem;letter-spacing:-2px;line-height:1.08;background:linear-gradient(95deg,#6ee7b7 0%,#34d399 40%,#fcd34d 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
-every decision.
-</div>
-<p style="font-size:1.05rem;color:rgba(255,255,255,.58);max-width:500px;margin:0 auto 2.5rem;line-height:1.85;font-weight:400">
-The first AI loan system that tells you not just
-<span style="color:rgba(255,255,255,.85)">yes or no</span>, but
-<span style="color:#6ee7b7;font-weight:600">exactly what to change</span>
-to get approved. Fair. Instant. Transparent.
-</p>
-</div>
-<div style="text-align:center;margin-bottom:2.5rem">
-<span style="display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.82);padding:8px 18px;border-radius:100px;font-size:.76rem;font-weight:600;margin:4px">Decision in 2 seconds</span>
-<span style="display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.82);padding:8px 18px;border-radius:100px;font-size:.76rem;font-weight:600;margin:4px">Gender-Fair Certified</span>
-<span style="display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.82);padding:8px 18px;border-radius:100px;font-size:.76rem;font-weight:600;margin:4px">Every Rejection Explained</span>
-<span style="display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.82);padding:8px 18px;border-radius:100px;font-size:.76rem;font-weight:600;margin:4px">Bank-Grade Security</span>
-</div>
-<div style="text-align:center;padding-bottom:1rem">
-<div style="display:inline-flex;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:.35rem">
-<div style="padding:1.1rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)">
-<div style="font-size:1.9rem;font-weight:800;color:#fff;line-height:1">1,000+</div>
-<div style="font-size:.63rem;color:rgba(255,255,255,.38);margin-top:5px;letter-spacing:.08em">APPLICATIONS</div>
-</div>
-<div style="padding:1.1rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)">
-<div style="font-size:1.9rem;font-weight:800;color:#6ee7b7;line-height:1">92%</div>
-<div style="font-size:.63rem;color:rgba(255,255,255,.38);margin-top:5px;letter-spacing:.08em">FAIRNESS SCORE</div>
-</div>
-<div style="padding:1.1rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)">
-<div style="font-size:1.9rem;font-weight:800;color:#fcd34d;line-height:1">&lt;2 sec</div>
-<div style="font-size:.63rem;color:rgba(255,255,255,.38);margin-top:5px;letter-spacing:.08em">DECISION TIME</div>
-</div>
-<div style="padding:1.1rem 2rem;text-align:center">
-<div style="font-size:1.9rem;font-weight:800;color:#fff;line-height:1">Rs.0</div>
-<div style="font-size:.63rem;color:rgba(255,255,255,.38);margin-top:5px;letter-spacing:.08em">PROCESSING FEE</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-""", unsafe_allow_html=True)
+    # HERO - single unified block so background wraps all content correctly
+    st.markdown("""<div style="background:linear-gradient(160deg,#011a12 0%,#022c22 25%,#064e3b 50%,#022c22 75%,#011a12 100%);border-radius:28px;padding:5rem 4rem 4.5rem;margin-bottom:2.5rem;text-align:center;position:relative;overflow:hidden;border:1px solid rgba(52,211,153,.15);box-shadow:0 32px 80px rgba(1,26,18,.6)"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:3px;background:linear-gradient(90deg,transparent,#f59e0b,transparent)"></div><div style="position:absolute;top:-120px;left:-80px;width:480px;height:480px;border-radius:50%;opacity:.25;filter:blur(80px);background:radial-gradient(circle,#10b981,transparent 65%)"></div><div style="position:absolute;bottom:-100px;right:-60px;width:400px;height:400px;border-radius:50%;opacity:.18;filter:blur(80px);background:radial-gradient(circle,#f59e0b,transparent 65%)"></div><div style="position:relative;z-index:2"><div style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);padding:7px 22px;border-radius:100px;margin-bottom:2rem"><div style="width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399"></div><span style="font-size:.7rem;font-weight:700;color:#6ee7b7;letter-spacing:.12em;text-transform:uppercase">AI-Powered Banking Platform</span></div><div style="font-family:Manrope,sans-serif;font-size:3.8rem;font-weight:900;color:#ffffff;letter-spacing:-2px;line-height:1.08;margin-bottom:.4rem;text-shadow:0 2px 40px rgba(0,0,0,.4)">Banking that explains</div><div style="font-family:Manrope,sans-serif;font-size:3.8rem;font-weight:900;letter-spacing:-2px;line-height:1.08;margin-bottom:1.6rem;background:linear-gradient(95deg,#6ee7b7 0%,#34d399 45%,#fcd34d 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">every decision.</div><div style="font-size:1.05rem;color:rgba(255,255,255,.72);max-width:500px;margin:0 auto 2.8rem;line-height:1.85;text-shadow:0 1px 10px rgba(0,0,0,.3)">The first AI loan system that tells you not just <span style="color:#ffffff;font-weight:600">yes or no</span>, but <span style="color:#6ee7b7;font-weight:700">exactly what to change</span> to get approved. Fair. Instant. Transparent.</div><div style="margin-bottom:2.8rem"><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.88);padding:9px 20px;border-radius:100px;font-size:.76rem;font-weight:600;margin:5px">Decision in 2 seconds</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.88);padding:9px 20px;border-radius:100px;font-size:.76rem;font-weight:600;margin:5px">Gender-Fair Certified</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.88);padding:9px 20px;border-radius:100px;font-size:.76rem;font-weight:600;margin:5px">Every Rejection Explained</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.88);padding:9px 20px;border-radius:100px;font-size:.76rem;font-weight:600;margin:5px">Bank-Grade Security</span></div><div style="display:inline-flex;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:.4rem"><div style="padding:1.1rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)"><div style="font-family:Manrope,sans-serif;font-size:1.9rem;font-weight:800;color:#ffffff;line-height:1">1,000+</div><div style="font-size:.62rem;color:rgba(255,255,255,.4);margin-top:6px;letter-spacing:.09em">APPLICATIONS</div></div><div style="padding:1.1rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)"><div style="font-family:Manrope,sans-serif;font-size:1.9rem;font-weight:800;color:#6ee7b7;line-height:1">92%</div><div style="font-size:.62rem;color:rgba(255,255,255,.4);margin-top:6px;letter-spacing:.09em">FAIRNESS SCORE</div></div><div style="padding:1.1rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.08)"><div style="font-family:Manrope,sans-serif;font-size:1.9rem;font-weight:800;color:#fcd34d;line-height:1">2 sec</div><div style="font-size:.62rem;color:rgba(255,255,255,.4);margin-top:6px;letter-spacing:.09em">DECISION TIME</div></div><div style="padding:1.1rem 2rem;text-align:center"><div style="font-family:Manrope,sans-serif;font-size:1.9rem;font-weight:800;color:#ffffff;line-height:1">Rs.0</div><div style="font-size:.62rem;color:rgba(255,255,255,.4);margin-top:6px;letter-spacing:.09em">PROCESSING FEE</div></div></div></div></div>""", unsafe_allow_html=True)
 
-    # CTA button below hero — deliberate placement after credibility
-    _, cta_col, _ = st.columns([2, 1.5, 2])
+    # CTA BUTTON below hero
+    st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+    _, cta_col, _ = st.columns([2.5, 1.5, 2.5])
     with cta_col:
-        if st.button("Check My Loan Eligibility \u2192", type="primary",
+        if st.button("Check My Loan Eligibility", type="primary",
                      use_container_width=True, key="hero_cta"):
             st.session_state.landing = False
             st.rerun()
 
     st.markdown("<div style='height:40px'></div>", unsafe_allow_html=True)
 
-    # ── SERVICES ──────────────────────────────────────────────
-    st.markdown("""
-<div style="text-align:center;margin-bottom:2.2rem">
-  <div style="display:inline-block;font-size:.68rem;font-weight:700;
-       color:#059669;letter-spacing:.14em;text-transform:uppercase;
-       margin-bottom:.6rem;padding:4px 14px;border-radius:100px;
-       background:#ecfdf5;border:1px solid #a7f3d0">Our Services</div>
-  <h2 style="font-family:'Manrope',sans-serif;font-size:2.1rem;font-weight:800;
-             color:#022c22;margin:0 0 .5rem;letter-spacing:-1px">
-    Complete Financial Services
-  </h2>
-  <p style="font-size:.88rem;color:#6b7280;margin:0 auto;
-            max-width:420px;line-height:1.65">
-    One platform for all your banking needs.
-  </p>
-</div>
-""", unsafe_allow_html=True)
+    # SERVICES HEADER
+    st.markdown("""<div style="text-align:center;margin-bottom:2.2rem"><div style="display:inline-block;font-size:.68rem;font-weight:700;color:#059669;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem;padding:4px 14px;border-radius:100px;background:#ecfdf5;border:1px solid #a7f3d0">Our Services</div><div style="font-family:Manrope,sans-serif;font-size:2.1rem;font-weight:800;color:#022c22;letter-spacing:-1px;margin-bottom:.5rem">Complete Financial Services</div><div style="font-size:.88rem;color:#6b7280;max-width:420px;margin:0 auto;line-height:1.65">One platform for all your banking needs.</div></div>""", unsafe_allow_html=True)
 
-    # ── ROW 1 ─────────────────────────────────────────────────
+    # SERVICE CARDS ROW 1
     sc1, sc2, sc3 = st.columns(3, gap="medium")
-
     with sc1:
-        st.markdown("""
-<div style="background:linear-gradient(145deg,#022c22 0%,#064e3b 100%);
-     border-radius:22px;padding:2rem;min-height:260px;
-     border:1px solid rgba(52,211,153,.18);
-     box-shadow:0 16px 48px rgba(2,44,34,.35);
-     position:relative;overflow:hidden">
-  <div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;
-       border-radius:50%;background:rgba(52,211,153,.07)"></div>
-  <div style="position:absolute;bottom:-70px;left:-40px;width:220px;height:220px;
-       border-radius:50%;background:rgba(245,158,11,.04)"></div>
-  <div style="position:relative">
-    <div style="display:inline-flex;align-items:center;gap:6px;
-         background:rgba(52,211,153,.14);border:1px solid rgba(52,211,153,.22);
-         padding:4px 12px;border-radius:100px;margin-bottom:1.2rem">
-      <div style="width:5px;height:5px;border-radius:50%;background:#34d399"></div>
-      <span style="font-size:.62rem;font-weight:700;color:#6ee7b7;letter-spacing:.06em">
-        LIVE NOW
-      </span>
-    </div>
-    <div style="font-size:2.2rem;margin-bottom:.8rem">&#x1F916;</div>
-    <div style="font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:800;
-                color:#fff;margin-bottom:.55rem;line-height:1.3">
-      Smart AI Loan<br>Eligibility Check
-    </div>
-    <div style="font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.72">
-      Instant AI decision with full plain-English explanation
-      and minimum changes needed for approval.
-    </div>
-  </div>
-</div>""", unsafe_allow_html=True)
+        st.markdown("""<div style="background:linear-gradient(145deg,#022c22,#064e3b);border-radius:22px;padding:2rem;min-height:260px;border:1px solid rgba(52,211,153,.18);box-shadow:0 16px 48px rgba(2,44,34,.35);position:relative;overflow:hidden"><div style="position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(52,211,153,.07)"></div><div style="position:relative"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(52,211,153,.14);border:1px solid rgba(52,211,153,.22);padding:4px 12px;border-radius:100px;margin-bottom:1.2rem"><div style="width:5px;height:5px;border-radius:50%;background:#34d399"></div><span style="font-size:.62rem;font-weight:700;color:#6ee7b7;letter-spacing:.06em">LIVE NOW</span></div><div style="font-size:2.2rem;margin-bottom:.8rem">&#x1F916;</div><div style="font-family:Manrope,sans-serif;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:.55rem;line-height:1.3">Smart AI Loan Eligibility Check</div><div style="font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.72">Instant AI decision with plain-English explanation and minimum changes for approval.</div></div></div>""", unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        if st.button("Check Eligibility \u2192", type="primary",
-                     use_container_width=True, key="loan_btn"):
+        if st.button("Check Eligibility", type="primary", use_container_width=True, key="loan_btn"):
             st.session_state.landing = False
             st.rerun()
 
-    def scard(icon, title, desc):
-        return f"""
-<div style="background:rgba(255,255,255,.85);backdrop-filter:blur(20px);
-     border:1px solid rgba(209,250,229,.8);border-radius:22px;
-     padding:2rem;min-height:260px;position:relative;overflow:hidden;
-     box-shadow:0 4px 24px rgba(6,78,59,.06)">
-  <div style="position:absolute;top:0;right:0;width:80px;height:80px;
-       border-radius:0 22px 0 80px;
-       background:linear-gradient(135deg,rgba(5,150,105,.06),transparent)"></div>
-  <div style="background:#ecfdf5;color:#059669;font-size:.62rem;font-weight:700;
-       padding:4px 12px;border-radius:100px;display:inline-block;
-       margin-bottom:1.2rem;border:1px solid #a7f3d0;letter-spacing:.05em">
-    COMING SOON
-  </div>
-  <div style="font-size:2.2rem;margin-bottom:.8rem">{icon}</div>
-  <div style="font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:700;
-              color:#022c22;margin-bottom:.5rem">{title}</div>
-  <div style="font-size:.78rem;color:#6b7280;line-height:1.72">{desc}</div>
-</div>"""
+    def gc(icon, title, desc):
+        return f"""<div style="background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border:1px solid rgba(209,250,229,.8);border-radius:22px;padding:2rem;min-height:260px;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(6,78,59,.06)"><div style="background:#ecfdf5;color:#059669;font-size:.62rem;font-weight:700;padding:4px 12px;border-radius:100px;display:inline-block;margin-bottom:1.2rem;border:1px solid #a7f3d0;letter-spacing:.05em">COMING SOON</div><div style="font-size:2.2rem;margin-bottom:.8rem">{icon}</div><div style="font-family:Manrope,sans-serif;font-size:1.05rem;font-weight:700;color:#022c22;margin-bottom:.5rem">{title}</div><div style="font-size:.78rem;color:#6b7280;line-height:1.72">{desc}</div></div>"""
 
     with sc2:
-        st.markdown(scard("&#x1F3E0;","Home Loan",
-            "Property valuation, EMI calculator, eligibility check, and documentation assistance."),
-            unsafe_allow_html=True)
+        st.markdown(gc("&#x1F3E0;","Home Loan","Property valuation, EMI calculator, eligibility check, and documentation assistance."), unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        st.button("Enquire \u2192", use_container_width=True, disabled=True, key="home_btn")
-
+        st.button("Enquire", use_container_width=True, disabled=True, key="home_btn")
     with sc3:
-        st.markdown(scard("&#x1F697;","Vehicle Loan",
-            "Two-wheeler, car, and commercial vehicle loans with instant pre-approval."),
-            unsafe_allow_html=True)
+        st.markdown(gc("&#x1F697;","Vehicle Loan","Two-wheeler, car, and commercial vehicle loans with instant pre-approval."), unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        st.button("Enquire \u2192", use_container_width=True, disabled=True, key="veh_btn")
+        st.button("Enquire", use_container_width=True, disabled=True, key="veh_btn")
 
     st.markdown("<div style='height:14px'></div>", unsafe_allow_html=True)
     sc4, sc5, sc6 = st.columns(3, gap="medium")
     with sc4:
-        st.markdown(scard("&#x1F4B3;","Credit Cards",
-            "Zero-fee cards with 5% cashback, travel miles, and purchase protection."),
-            unsafe_allow_html=True)
+        st.markdown(gc("&#x1F4B3;","Credit Cards","Zero-fee cards with 5% cashback, travel miles, and purchase protection."), unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        st.button("Apply \u2192", use_container_width=True, disabled=True, key="card_btn")
+        st.button("Apply", use_container_width=True, disabled=True, key="card_btn")
     with sc5:
-        st.markdown(scard("&#x1F4C8;","Investments & FD",
-            "Fixed deposits, mutual funds, SIPs and equity portfolios for every risk profile."),
-            unsafe_allow_html=True)
+        st.markdown(gc("&#x1F4C8;","Investments & FD","Fixed deposits, mutual funds, SIPs and equity portfolios for every risk profile."), unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        st.button("Invest \u2192", use_container_width=True, disabled=True, key="inv_btn")
+        st.button("Invest", use_container_width=True, disabled=True, key="inv_btn")
     with sc6:
-        st.markdown(scard("&#x1F6E1;","Insurance",
-            "Life, health and vehicle insurance. Compare plans and get covered in minutes."),
-            unsafe_allow_html=True)
+        st.markdown(gc("&#x1F6E1;&#xFE0F;","Insurance","Life, health and vehicle insurance. Compare plans and get covered in minutes."), unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        st.button("Insure \u2192", use_container_width=True, disabled=True, key="ins_btn")
+        st.button("Insure", use_container_width=True, disabled=True, key="ins_btn")
 
     st.markdown("<div style='height:14px'></div>", unsafe_allow_html=True)
     sc7, sc8, sc9 = st.columns(3, gap="medium")
     with sc7:
-        st.markdown(scard("&#x1F4CA;","Financial Health Score",
-            "Credit score, savings rate, debt-to-income ratio, and personalised tips."),
-            unsafe_allow_html=True)
+        st.markdown(gc("&#x1F4CA;","Financial Health Score","Credit score, savings rate, debt-to-income ratio and personalised tips."), unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        st.button("Check Score \u2192", use_container_width=True, disabled=True, key="fhs_btn")
+        st.button("Check Score", use_container_width=True, disabled=True, key="fhs_btn")
     with sc8:
-        st.markdown(scard("&#x1F393;","Education Loan",
-            "Collateral-free university loans for India and abroad with moratorium support."),
-            unsafe_allow_html=True)
+        st.markdown(gc("&#x1F393;","Education Loan","Collateral-free university loans for India and abroad with moratorium support."), unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        st.button("Apply \u2192", use_container_width=True, disabled=True, key="edu_btn")
+        st.button("Apply", use_container_width=True, disabled=True, key="edu_btn")
     with sc9:
-        st.markdown(scard("&#x1F3ED;","Business Loan",
-            "Working capital, term loans and MSME finance. Fast disbursal, minimal paperwork."),
-            unsafe_allow_html=True)
+        st.markdown(gc("&#x1F3ED;","Business Loan","Working capital, term loans and MSME finance. Fast disbursal, minimal paperwork."), unsafe_allow_html=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-        st.button("Apply \u2192", use_container_width=True, disabled=True, key="biz_btn")
+        st.button("Apply", use_container_width=True, disabled=True, key="biz_btn")
 
-    # ── TRUST BANNER ──────────────────────────────────────────
+    # CTA BANNER
     st.markdown("<div style='height:36px'></div>", unsafe_allow_html=True)
-    st.markdown("""
-<div style="background:linear-gradient(160deg,#022c22 0%,#064e3b 50%,#022c22 100%);
-     border-radius:24px;padding:3rem 3.5rem;
-     border:1px solid rgba(52,211,153,.12);
-     box-shadow:0 24px 72px rgba(2,44,34,.35);
-     position:relative;overflow:hidden">
-  <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);
-       width:220px;height:2px;
-       background:linear-gradient(90deg,transparent,#f59e0b,transparent)"></div>
-  <div style="position:absolute;top:-100px;right:-80px;width:380px;height:380px;
-       border-radius:50%;opacity:.4;filter:blur(70px);
-       background:radial-gradient(circle,rgba(16,185,129,.6),transparent 65%)"></div>
-  <div style="position:absolute;bottom:-80px;left:-60px;width:300px;height:300px;
-       border-radius:50%;opacity:.28;filter:blur(60px);
-       background:radial-gradient(circle,rgba(245,158,11,.6),transparent 65%)"></div>
-  <div style="position:relative;display:flex;align-items:center;
-       justify-content:space-between;flex-wrap:wrap;gap:3rem">
-    <div style="max-width:380px">
-      <div style="font-size:.66rem;font-weight:700;color:#6ee7b7;
-           letter-spacing:.1em;text-transform:uppercase;margin-bottom:.7rem">
-        Get Started Today
-      </div>
-      <div style="font-family:'Manrope',sans-serif;font-size:1.65rem;font-weight:800;
-                  color:#fff;letter-spacing:-.5px;line-height:1.25;margin-bottom:.7rem">
-        Check your loan eligibility<br>in under 2 seconds.
-      </div>
-      <p style="font-size:.84rem;color:rgba(255,255,255,.48);line-height:1.7;margin:0">
-        No hidden criteria. No waiting. No fees.
-        Every rejection includes the exact steps to get approved.
-      </p>
-    </div>
-    <div style="display:flex;gap:0;background:rgba(0,0,0,.2);
-         border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:.32rem">
-      <div style="padding:1.2rem 1.9rem;text-align:center;
-           border-right:1px solid rgba(255,255,255,.07)">
-        <div style="font-family:'Manrope',sans-serif;font-size:1.7rem;
-                    font-weight:800;color:#34d399;line-height:1">1,000+</div>
-        <div style="font-size:.6rem;color:rgba(255,255,255,.36);
-                    letter-spacing:.08em;margin-top:5px">APPLICANTS</div>
-      </div>
-      <div style="padding:1.2rem 1.9rem;text-align:center;
-           border-right:1px solid rgba(255,255,255,.07)">
-        <div style="font-family:'Manrope',sans-serif;font-size:1.7rem;
-                    font-weight:800;color:#fcd34d;line-height:1">92%</div>
-        <div style="font-size:.6rem;color:rgba(255,255,255,.36);
-                    letter-spacing:.08em;margin-top:5px">FAIRNESS</div>
-      </div>
-      <div style="padding:1.2rem 1.9rem;text-align:center;
-           border-right:1px solid rgba(255,255,255,.07)">
-        <div style="font-family:'Manrope',sans-serif;font-size:1.7rem;
-                    font-weight:800;color:#fff;line-height:1">100%</div>
-        <div style="font-size:.6rem;color:rgba(255,255,255,.36);
-                    letter-spacing:.08em;margin-top:5px">EXPLAINED</div>
-      </div>
-      <div style="padding:1.2rem 1.9rem;text-align:center">
-        <div style="font-family:'Manrope',sans-serif;font-size:1.7rem;
-                    font-weight:800;color:#a78bfa;line-height:1">Rs.0</div>
-        <div style="font-size:.6rem;color:rgba(255,255,255,.36);
-                    letter-spacing:.08em;margin-top:5px">FEES</div>
-      </div>
-    </div>
-  </div>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""<div style="background:linear-gradient(160deg,#022c22 0%,#064e3b 50%,#022c22 100%);border-radius:24px;padding:3rem 3.5rem;border:1px solid rgba(52,211,153,.12);box-shadow:0 24px 72px rgba(2,44,34,.35);position:relative;overflow:hidden"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:220px;height:2px;background:linear-gradient(90deg,transparent,#f59e0b,transparent)"></div><div style="position:relative;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:3rem"><div style="max-width:380px"><div style="font-size:.66rem;font-weight:700;color:#6ee7b7;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.7rem">Get Started Today</div><div style="font-family:Manrope,sans-serif;font-size:1.65rem;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1.25;margin-bottom:.7rem">Check your loan eligibility in under 2 seconds.</div><div style="font-size:.84rem;color:rgba(255,255,255,.48);line-height:1.7">No hidden criteria. No waiting. No fees. Every rejection includes the exact steps to get approved.</div></div><div style="display:flex;gap:0;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:.32rem"><div style="padding:1.2rem 1.9rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)"><div style="font-size:1.7rem;font-weight:800;color:#34d399;line-height:1">1,000+</div><div style="font-size:.6rem;color:rgba(255,255,255,.36);letter-spacing:.08em;margin-top:5px">APPLICANTS</div></div><div style="padding:1.2rem 1.9rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)"><div style="font-size:1.7rem;font-weight:800;color:#fcd34d;line-height:1">92%</div><div style="font-size:.6rem;color:rgba(255,255,255,.36);letter-spacing:.08em;margin-top:5px">FAIRNESS</div></div><div style="padding:1.2rem 1.9rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)"><div style="font-size:1.7rem;font-weight:800;color:#fff;line-height:1">100%</div><div style="font-size:.6rem;color:rgba(255,255,255,.36);letter-spacing:.08em;margin-top:5px">EXPLAINED</div></div><div style="padding:1.2rem 1.9rem;text-align:center"><div style="font-size:1.7rem;font-weight:800;color:#a78bfa;line-height:1">Rs.0</div><div style="font-size:.6rem;color:rgba(255,255,255,.36);letter-spacing:.08em;margin-top:5px">FEES</div></div></div></div></div>""", unsafe_allow_html=True)
 
-    # ── FOOTER ────────────────────────────────────────────────
+    # FOOTER
     st.markdown("<div style='height:36px'></div>", unsafe_allow_html=True)
-    st.markdown("""
-<div style="border-top:1px solid #d1fae5;padding:2.2rem 0 1rem">
-  <div style="display:flex;justify-content:space-between;
-       flex-wrap:wrap;gap:2.5rem;margin-bottom:2rem">
-    <div style="max-width:240px">
-      <div style="display:flex;align-items:center;gap:9px;margin-bottom:.8rem">
-        <div style="background:linear-gradient(135deg,#059669,#047857);
-             width:32px;height:32px;border-radius:10px;
-             display:flex;align-items:center;justify-content:center;
-             font-size:.95rem;box-shadow:0 4px 12px rgba(5,150,105,.3)">&#x1F3E6;</div>
-        <span style="font-family:'Manrope',sans-serif;font-size:1.05rem;
-                     font-weight:800;color:#022c22">NexaBank</span>
-      </div>
-      <div style="font-size:.75rem;color:#9ca3af;line-height:1.8">
-        AI-powered, fairness-certified financial services for modern India.
-      </div>
-      <div style="margin-top:.9rem;display:flex;gap:.5rem">
-        <div style="width:30px;height:30px;border-radius:8px;
-             background:#f0fdf4;border:1px solid #d1fae5;
-             display:flex;align-items:center;justify-content:center;font-size:.78rem">
-          &#x1F4E7;
-        </div>
-        <div style="width:30px;height:30px;border-radius:8px;
-             background:#f0fdf4;border:1px solid #d1fae5;
-             display:flex;align-items:center;justify-content:center;font-size:.78rem">
-          &#x1F4F1;
-        </div>
-        <div style="width:30px;height:30px;border-radius:8px;
-             background:#f0fdf4;border:1px solid #d1fae5;
-             display:flex;align-items:center;justify-content:center;font-size:.78rem">
-          &#x1F517;
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;gap:4rem;flex-wrap:wrap">
-      <div>
-        <div style="font-size:.63rem;font-weight:700;color:#064e3b;
-                    margin-bottom:.8rem;letter-spacing:.09em;text-transform:uppercase">
-          Products
-        </div>
-        <div style="font-size:.78rem;color:#6b7280;line-height:2.3">
-          AI Loan Eligibility<br>Home Loan<br>Credit Cards<br>Investments<br>Insurance
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.63rem;font-weight:700;color:#064e3b;
-                    margin-bottom:.8rem;letter-spacing:.09em;text-transform:uppercase">
-          Company
-        </div>
-        <div style="font-size:.78rem;color:#6b7280;line-height:2.3">
-          About Us<br>Careers<br>Press Room<br>Blog<br>Partners
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.63rem;font-weight:700;color:#064e3b;
-                    margin-bottom:.8rem;letter-spacing:.09em;text-transform:uppercase">
-          Legal
-        </div>
-        <div style="font-size:.78rem;color:#6b7280;line-height:2.3">
-          Privacy Policy<br>Terms of Service<br>Cookie Policy<br>Fair Lending<br>Compliance
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.63rem;font-weight:700;color:#064e3b;
-                    margin-bottom:.8rem;letter-spacing:.09em;text-transform:uppercase">
-          Support
-        </div>
-        <div style="font-size:.78rem;color:#6b7280;line-height:2.3">
-          Help Centre<br>Contact Us<br>Grievance Cell<br>Branch Locator<br>24/7 Chat
-        </div>
-      </div>
-    </div>
-  </div>
-  <div style="border-top:1px solid rgba(209,250,229,0.5);padding-top:1.2rem;
-       display:flex;justify-content:space-between;align-items:center;
-       flex-wrap:wrap;gap:.8rem">
-    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
-      <span style="font-size:.7rem;color:#9ca3af">
-        2026 NexaBank Financial Services Pvt. Ltd.
-      </span>
-      <span style="background:#ecfdf5;color:#059669;font-size:.63rem;font-weight:700;
-           padding:2px 10px;border-radius:100px;border:1px solid #a7f3d0">
-        RBI Regulated
-      </span>
-      <span style="background:#fefce8;color:#92400e;font-size:.63rem;font-weight:700;
-           padding:2px 10px;border-radius:100px;border:1px solid #fde68a">
-        AI Certified
-      </span>
-    </div>
-    <div style="font-size:.7rem;color:#d1d5db">
-      Demo &middot; Not a real bank &middot; Educational only
-    </div>
-  </div>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""<div style="border-top:1px solid #d1fae5;padding:2.2rem 0 1rem"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:2.5rem;margin-bottom:2rem"><div style="max-width:240px"><div style="display:flex;align-items:center;gap:9px;margin-bottom:.8rem"><div style="background:linear-gradient(135deg,#059669,#047857);width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;box-shadow:0 4px 12px rgba(5,150,105,.3)">&#x1F3E6;</div><span style="font-family:Manrope,sans-serif;font-size:1.05rem;font-weight:800;color:#022c22">NexaBank</span></div><div style="font-size:.75rem;color:#9ca3af;line-height:1.8">AI-powered, fairness-certified financial services for modern India.</div></div><div style="display:flex;gap:4rem;flex-wrap:wrap"><div><div style="font-size:.63rem;font-weight:700;color:#064e3b;margin-bottom:.8rem;letter-spacing:.09em;text-transform:uppercase">Products</div><div style="font-size:.78rem;color:#6b7280;line-height:2.3">AI Loan Eligibility<br>Home Loan<br>Credit Cards<br>Investments<br>Insurance</div></div><div><div style="font-size:.63rem;font-weight:700;color:#064e3b;margin-bottom:.8rem;letter-spacing:.09em;text-transform:uppercase">Company</div><div style="font-size:.78rem;color:#6b7280;line-height:2.3">About Us<br>Careers<br>Press Room<br>Blog<br>Partners</div></div><div><div style="font-size:.63rem;font-weight:700;color:#064e3b;margin-bottom:.8rem;letter-spacing:.09em;text-transform:uppercase">Legal</div><div style="font-size:.78rem;color:#6b7280;line-height:2.3">Privacy Policy<br>Terms of Service<br>Fair Lending<br>Compliance</div></div></div></div><div style="border-top:1px solid rgba(209,250,229,.5);padding-top:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem"><div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap"><span style="font-size:.7rem;color:#9ca3af">2026 NexaBank Financial Services Pvt. Ltd.</span><span style="background:#ecfdf5;color:#059669;font-size:.63rem;font-weight:700;padding:2px 10px;border-radius:100px;border:1px solid #a7f3d0">RBI Regulated</span><span style="background:#fefce8;color:#92400e;font-size:.63rem;font-weight:700;padding:2px 10px;border-radius:100px;border:1px solid #fde68a">AI Certified</span></div><div style="font-size:.7rem;color:#d1d5db">Demo - Not a real bank - Educational only</div></div></div>""", unsafe_allow_html=True)
 
     st.stop()
 
@@ -689,12 +331,12 @@ with top_l:
     st.markdown("""
     <div style='background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);
          border-radius:18px;padding:1rem 1.6rem;border:1px solid rgba(255,255,255,0.9);
-         box-shadow:0 2px 16px rgba(0,0,0,.06);
-         display:flex;align-items:center;gap:14px'>
+         box-shadow:0 2px 16px rgba(5,150,105,.08);
+         display:flex;align-items:center;gap:14px;border:1px solid #d1fae5'>
       <div style='background:linear-gradient(135deg,#059669,#047857);
            width:42px;height:42px;border-radius:13px;display:flex;
            align-items:center;justify-content:center;font-size:1.2rem;
-           flex-shrink:0;box-shadow:0 4px 14px rgba(5,150,105,.4)'>🤖</div>
+           flex-shrink:0;box-shadow:0 4px 14px rgba(99,102,241,.4)'>🤖</div>
       <div>
         <div style='font-size:1.05rem;font-weight:800;color:#111827;
                     letter-spacing:-.3px'>Smart AI Loan Eligibility Check</div>
@@ -706,9 +348,9 @@ with top_l:
 
 with top_r:
     st.markdown("""
-    <div style='background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);
-         border-radius:18px;padding:.8rem 1.2rem;border:1px solid rgba(255,255,255,0.9);
-         box-shadow:0 2px 16px rgba(0,0,0,.06)'>
+    <div style='background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);
+         border-radius:18px;padding:.8rem 1.2rem;border:1px solid #d1fae5;
+         box-shadow:0 2px 16px rgba(5,150,105,.08)'>
       <p style='font-size:.62rem;font-weight:700;letter-spacing:.09em;
                 color:#9ca3af;text-transform:uppercase;margin:0 0 8px'>
         Navigate
@@ -757,7 +399,7 @@ if st.session_state.page == "predict":
             <div style='background:linear-gradient(135deg,#059669 0%,#047857 100%);
                  border-radius:20px;padding:1.8rem 2.2rem;margin-bottom:1.2rem;
                  position:relative;overflow:hidden;
-                 box-shadow:0 8px 32px rgba(5,150,105,.35)'>
+                 box-shadow:0 8px 32px rgba(99,102,241,.35)'>
               <div style='position:absolute;top:-50px;right:-50px;width:200px;height:200px;
                    border-radius:50%;background:rgba(255,255,255,.07)'></div>
               <div style='position:absolute;bottom:-60px;left:-40px;width:180px;height:180px;
@@ -777,83 +419,51 @@ if st.session_state.page == "predict":
                 st.markdown(f"""
                 <div style='display:flex;align-items:center;gap:8px;margin:16px 0 8px'>
                   <div style='width:28px;height:28px;border-radius:8px;
-                       background:linear-gradient(135deg,#ecfdf5,#d1fae5);
+                       background:linear-gradient(135deg,#d1fae5,#a7f3d0);
                        display:flex;align-items:center;justify-content:center;
                        font-size:.85rem'>{emoji}</div>
                   <span style='font-size:.72rem;font-weight:700;letter-spacing:.08em;
-                               color:#10b981;text-transform:uppercase'>{title}</span>
+                               color:#059669;text-transform:uppercase'>{title}</span>
                 </div>""", unsafe_allow_html=True)
-
-            # Pre-fill from the last submission (if any) so that
-            # clicking "New Application" to go back and tweak values
-            # doesn't wipe out everything the user already entered.
-            prev = st.session_state.get("form_data", {})
 
             sec_label("👤","Personal Information")
             pa, pb, pc = st.columns(3, gap="medium")
-            with pa: age = st.number_input("Age (years)", 18, 80, prev.get("age", 30), 1, key="fld_age")
-            with pb:
-                sex_options = ["Male","Female","Prefer not to say"]
-                sex = st.selectbox("Gender", sex_options,
-                        index=sex_options.index(prev["sex"]) if prev.get("sex") in sex_options else 0,
-                        key="fld_sex")
-            with pc:
-                job_options = list(JOB_MAP.keys())
-                job_lbl = st.selectbox("Employment Type", job_options,
-                        index=job_options.index(prev["job_lbl"]) if prev.get("job_lbl") in job_options else 0,
-                        key="fld_job")
+            with pa: age = st.number_input("Age (years)", 18, 80, 30, 1)
+            with pb: sex = st.selectbox("Gender", ["Male","Female","Prefer not to say"])
+            with pc: job_lbl = st.selectbox("Employment Type", list(JOB_MAP.keys()))
 
             pd2, pe = st.columns(2, gap="medium")
-            with pd2:
-                house_options = list(HOUSING_MAP.keys())
-                house_lbl = st.selectbox("Housing Situation", house_options,
-                        index=house_options.index(prev["house_lbl"]) if prev.get("house_lbl") in house_options else 0,
-                        key="fld_house")
-            with pe:
-                purpose_options = list(PURPOSE_MAP.keys())
-                purpose_lbl = st.selectbox("Purpose of Loan", purpose_options,
-                        index=purpose_options.index(prev["purpose_lbl"]) if prev.get("purpose_lbl") in purpose_options else 0,
-                        key="fld_purpose")
+            with pd2: house_lbl = st.selectbox("Housing Situation", list(HOUSING_MAP.keys()))
+            with pe:  purpose_lbl = st.selectbox("Purpose of Loan", list(PURPOSE_MAP.keys()))
 
             sec_label("💰","Financial Status")
             st.markdown("""
-            <div style='background:rgba(5,150,105,.07);border-radius:12px;
-                 padding:10px 16px;border:1px solid rgba(5,150,105,.15);
+            <div style='background:rgba(99,102,241,.07);border-radius:12px;
+                 padding:10px 16px;border:1px solid rgba(99,102,241,.15);
                  margin-bottom:10px'>
-              <span style='font-size:.76rem;color:#059669;line-height:1.6'>
+              <span style='font-size:.76rem;color:#047857;line-height:1.6'>
                 <strong>Savings Account</strong> — money kept long-term for security &nbsp;·&nbsp;
                 <strong>Current Account</strong> — salary / day-to-day transactions
               </span>
             </div>""", unsafe_allow_html=True)
 
             fa, fb = st.columns(2, gap="medium")
-            with fa:
-                saving_options = list(SAVING_MAP.keys())
-                saving_lbl  = st.selectbox("Savings Account Balance",  saving_options,
-                        index=saving_options.index(prev["saving_lbl"]) if prev.get("saving_lbl") in saving_options else 0,
-                        key="fld_saving")
-            with fb:
-                current_options = list(CURRENT_MAP.keys())
-                current_lbl = st.selectbox("Current Account Balance",   current_options,
-                        index=current_options.index(prev["current_lbl"]) if prev.get("current_lbl") in current_options else 0,
-                        key="fld_current")
+            with fa: saving_lbl  = st.selectbox("Savings Account Balance",  list(SAVING_MAP.keys()))
+            with fb: current_lbl = st.selectbox("Current Account Balance",   list(CURRENT_MAP.keys()))
 
             sec_label("📋","Loan Details")
             la, lb = st.columns(2, gap="medium")
             with la:
                 credit_inr = st.number_input("Loan Amount Required (₹ INR)",
-                    3000, 3000000, prev.get("credit_inr", 150000), 5000,
-                    help="Enter in Indian Rupees · 1 Deutsche Mark ≈ ₹30",
-                    key="fld_credit")
+                    3000, 3000000, 150000, 5000,
+                    help="Enter in Indian Rupees · 1 Deutsche Mark ≈ ₹30")
             with lb:
-                duration_options = [6,12,18,24,30,36,48,60,72,84,96,108,120,144,168,192,216,240]
                 duration = st.selectbox("Loan Duration",
-                    duration_options,
-                    index=duration_options.index(prev["duration"]) if prev.get("duration") in duration_options else 3,
+                    [6,12,18,24,30,36,48,60,72,84,96,108,120,144,168,192,216,240],
+                    index=3,
                     format_func=lambda x: (
                         f"{x} months  ({x//12} yr{'s' if x//12>1 else ''})"
-                        if x>=12 else f"{x} months"),
-                    key="fld_duration")
+                        if x>=12 else f"{x} months"))
 
             # Live warnings
             no_sav  = SAVING_MAP[saving_lbl]  == "no_savings"
@@ -978,8 +588,8 @@ if st.session_state.page == "predict":
             # Profile card
             st.markdown("""
             <div style='background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);
-                 border-radius:18px;border:1px solid rgba(255,255,255,0.9);
-                 padding:1.1rem 1.3rem;box-shadow:0 2px 12px rgba(0,0,0,.06)'>
+                 border-radius:18px;border:1px solid #d1fae5;
+                 padding:1.1rem 1.3rem;box-shadow:0 2px 12px rgba(5,150,105,.06)'>
               <div style='font-size:.62rem;font-weight:700;letter-spacing:.09em;
                    color:#9ca3af;text-transform:uppercase;margin-bottom:10px'>
                 Application Summary
@@ -1009,8 +619,8 @@ if st.session_state.page == "predict":
         with col_e:
             st.markdown(f"""
             <div style='background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);
-                 border-radius:18px;border:1px solid rgba(255,255,255,0.9);
-                 padding:1.5rem 1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.06);
+                 border-radius:18px;border:1px solid #d1fae5;
+                 padding:1.5rem 1.8rem;box-shadow:0 2px 12px rgba(5,150,105,.05);
                  margin-bottom:10px'>
               <p style='font-size:1rem;font-weight:800;color:#111827;margin:0 0 4px;
                         letter-spacing:-.2px'>
@@ -1137,7 +747,7 @@ if st.session_state.page == "predict":
                          box-shadow:0 2px 8px rgba(14,165,233,.08)'>
                       <div style='font-size:1.4rem;flex-shrink:0'>{direction}</div>
                       <div>
-                        <div style='font-size:.86rem;font-weight:700;color:#0369a1'>{feat_lbl}</div>
+                        <div style='font-size:.86rem;font-weight:700;color:#065f46'>{feat_lbl}</div>
                         <div style='font-size:.76rem;color:#6b7280;margin-top:1px'>{chg}</div>
                       </div>
                     </div>""", unsafe_allow_html=True)
@@ -1145,54 +755,11 @@ if st.session_state.page == "predict":
                     if shown >= 3: break
 
                 if shown == 0:
-                    # Build fallback advice from the applicant's ACTUAL
-                    # profile instead of always showing the same static
-                    # "open/top up savings & current account" text —
-                    # that was firing even when savings/current were
-                    # already High, which is self-contradictory.
-                    sav_status = SAVING_MAP[saving_lbl]
-                    cur_status = CURRENT_MAP[current_lbl]
-                    fallback_items = []
-
-                    if sav_status in ("no_savings", "little"):
-                        fallback_items.append(
-                            ("⬆️","Open or Top Up Savings Account",
-                             "Build ₹3,000–₹15,000 to show financial security"))
-                    if cur_status in ("no_current", "little"):
-                        fallback_items.append(
-                            ("⬆️","Open or Top Up Current Account",
-                             "A salary account with ₹6,000+ proves regular income"))
-                    if credit_inr > 150000:
-                        fallback_items.append(
-                            ("⬇️","Reduce the Loan Amount",
-                             "Request 30–50% less — smaller loans are easier to approve"))
-                    if duration > 24:
-                        fallback_items.append(
-                            ("⬇️","Shorten the Loan Duration",
-                             "A shorter repayment period lowers perceived risk"))
-
-                    if not fallback_items:
-                        # Savings/current are already strong and the
-                        # loan terms are reasonable — be honest that
-                        # there's no small, actionable change to give.
-                        st.markdown("""
-                        <div style='background:rgba(255,247,237,0.9);border-radius:12px;
-                             border:1px solid rgba(254,215,170,0.8);
-                             border-left:4px solid #f59e0b;
-                             padding:13px 16px;margin-bottom:9px'>
-                          <div style='font-size:.86rem;font-weight:700;color:#92400e'>
-                            No small change found
-                          </div>
-                          <div style='font-size:.78rem;color:#6b7280;margin-top:3px;line-height:1.6'>
-                            Your savings, current account, and loan terms already look strong.
-                            This application is borderline, and our AI couldn't identify a
-                            single meaningful adjustment that would flip the decision —
-                            it may come down to factors like age, employment type, or loan purpose
-                            that aren't easily changed.
-                          </div>
-                        </div>""", unsafe_allow_html=True)
-
-                    for arr,feat,desc in fallback_items:
+                    for arr,feat,desc in [
+                        ("⬆️","Open or Top Up Savings Account","Build ₹3,000–₹15,000 to show financial security"),
+                        ("⬆️","Open or Top Up Current Account","A salary account with ₹6,000+ proves regular income"),
+                        ("⬇️","Reduce the Loan Amount","Request 30–50% less — smaller loans are easier to approve"),
+                    ]:
                         st.markdown(f"""
                         <div style='background:rgba(240,249,255,0.9);border-radius:12px;
                              border:1px solid rgba(186,230,253,0.8);
@@ -1201,7 +768,7 @@ if st.session_state.page == "predict":
                              display:flex;align-items:center;gap:12px'>
                           <div style='font-size:1.4rem;flex-shrink:0'>{arr}</div>
                           <div>
-                            <div style='font-size:.86rem;font-weight:700;color:#0369a1'>{feat}</div>
+                            <div style='font-size:.86rem;font-weight:700;color:#065f46'>{feat}</div>
                             <div style='font-size:.76rem;color:#6b7280;margin-top:1px'>{desc}</div>
                           </div>
                         </div>""", unsafe_allow_html=True)
@@ -1263,9 +830,9 @@ if st.session_state.page == "predict":
             # Confidence
             st.markdown(f"""
             <div style='background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);
-                 border-radius:16px;border:1px solid rgba(255,255,255,0.9);
+                 border-radius:16px;border:1px solid #d1fae5;
                  padding:1.1rem 1.3rem;margin-bottom:10px;
-                 box-shadow:0 2px 12px rgba(0,0,0,.06)'>
+                 box-shadow:0 2px 12px rgba(5,150,105,.06)'>
               <div style='font-size:.62rem;font-weight:700;letter-spacing:.09em;
                    color:#9ca3af;text-transform:uppercase;margin-bottom:8px'>
                 Approval Confidence
@@ -1319,8 +886,8 @@ if st.session_state.page == "predict":
             # Feature importance chart
             st.markdown("""
             <div style='background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);
-                 border-radius:16px;border:1px solid rgba(255,255,255,0.9);
-                 padding:1.1rem 1.3rem;box-shadow:0 2px 12px rgba(0,0,0,.06)'>
+                 border-radius:16px;border:1px solid #d1fae5;
+                 padding:1.1rem 1.3rem;box-shadow:0 2px 12px rgba(5,150,105,.06)'>
               <div style='font-size:.62rem;font-weight:700;letter-spacing:.09em;
                    color:#9ca3af;text-transform:uppercase;margin-bottom:8px'>
                 Key Decision Factors
@@ -1333,14 +900,14 @@ if st.session_state.page == "predict":
                 fig,ax=plt.subplots(figsize=(4,2.6))
                 fig.patch.set_facecolor("none")
                 ax.set_facecolor("none")
-                colors_bar = ["#10b981" if imp.values[i]>=imp.values.mean()
-                              else "#a5b4fc" for i in range(len(imp))]
-                ax.barh(imp.index, imp.values, color=colors_bar,
+                colors_bar = ["#059669" if imp.values[i]>=imp.values.mean()
+                              else "#6ee7b7" for i in range(len(imp))]
+                ax.barh(imp.index, imp.values, color="#059669",
                         alpha=.9, edgecolor="none", height=.6)
                 ax.set_xlabel("Importance", color="#9ca3af", fontsize=8)
                 ax.tick_params(colors="#374151", labelsize=8)
                 for sp in ax.spines.values(): sp.set_visible(False)
-                ax.xaxis.grid(True, color="rgba(229,231,235,0.5)", zorder=0)
+                ax.xaxis.grid(True, color="#e5e7eb", zorder=0)
                 ax.set_axisbelow(True)
                 plt.tight_layout(pad=.3)
                 st.pyplot(fig, transparent=True)
@@ -1360,7 +927,7 @@ elif st.session_state.page=="fairness":
          box-shadow:0 4px 24px rgba(0,0,0,.06)'>
       <div style='display:flex;align-items:center;gap:12px;margin-bottom:4px'>
         <div style='width:40px;height:40px;border-radius:12px;
-             background:linear-gradient(135deg,#ecfdf5,#d1fae5);
+             background:linear-gradient(135deg,#d1fae5,#a7f3d0);
              display:flex;align-items:center;justify-content:center;font-size:1.2rem'>⚖️</div>
         <div>
           <h2 style='font-size:1.3rem;font-weight:800;color:#111827;margin:0;
@@ -1416,7 +983,7 @@ elif st.session_state.page=="fairness":
                          fontsize=11,fontweight="bold",pad=14)
             ax.tick_params(colors="#374151")
             for sp in ax.spines.values(): sp.set_visible(False)
-            ax.yaxis.grid(True,color="rgba(229,231,235,0.6)",zorder=0)
+            ax.yaxis.grid(True,color="#e5e7eb",zorder=0)
             ax.set_axisbelow(True); ax.legend(fontsize=8)
             plt.tight_layout(); st.pyplot(fig,transparent=True); plt.close()
 
@@ -1438,7 +1005,7 @@ elif st.session_state.page=="fairness":
                          fontsize=11,fontweight="bold",pad=14)
             ax.tick_params(colors="#374151")
             for sp in ax.spines.values(): sp.set_visible(False)
-            ax.yaxis.grid(True,color="rgba(229,231,235,0.6)",zorder=0)
+            ax.yaxis.grid(True,color="#e5e7eb",zorder=0)
             ax.set_axisbelow(True); ax.legend(fontsize=9)
             plt.tight_layout(); st.pyplot(fig,transparent=True); plt.close()
 
@@ -1468,7 +1035,7 @@ elif st.session_state.page=="perf":
          box-shadow:0 4px 24px rgba(0,0,0,.06)'>
       <div style='display:flex;align-items:center;gap:12px'>
         <div style='width:40px;height:40px;border-radius:12px;
-             background:linear-gradient(135deg,#ecfdf5,#d1fae5);
+             background:linear-gradient(135deg,#d1fae5,#a7f3d0);
              display:flex;align-items:center;justify-content:center;font-size:1.2rem'>📊</div>
         <div>
           <h2 style='font-size:1.3rem;font-weight:800;color:#111827;margin:0;
@@ -1515,9 +1082,9 @@ elif st.session_state.page=="perf":
     with rc2:
         fpr,tpr,_=roc_curve(y_te,probs)
         fig,ax=light_fig(5.5,4.5)
-        ax.plot(fpr,tpr,color="#10b981",linewidth=2.5,
+        ax.plot(fpr,tpr,color="#059669",linewidth=2.5,
                 label=f"Fair Model  (AUC = {auc:.3f})")
-        ax.fill_between(fpr,tpr,alpha=.1,color="#10b981")
+        ax.fill_between(fpr,tpr,alpha=.08,color="#059669")
         ax.plot([0,1],[0,1],color="#94a3b8",linestyle="--",
                 linewidth=1.2,label="Random baseline")
         ax.set_xlabel("False Positive Rate",color="#374151",fontsize=10)
@@ -1527,6 +1094,6 @@ elif st.session_state.page=="perf":
         ax.tick_params(colors="#374151"); ax.legend(fontsize=9)
         ax.set_xlim([0,1]); ax.set_ylim([0,1])
         for sp in ax.spines.values(): sp.set_visible(False)
-        ax.yaxis.grid(True,color="rgba(229,231,235,0.5)")
-        ax.xaxis.grid(True,color="rgba(229,231,235,0.5)")
+        ax.yaxis.grid(True,color="#e5e7eb")
+        ax.xaxis.grid(True,color="#e5e7eb")
         plt.tight_layout(); st.pyplot(fig,transparent=True); plt.close()
