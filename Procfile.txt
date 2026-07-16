@@ -1,1 +1,1 @@
-web: sh setup.sh
+web: bash setup.sh
