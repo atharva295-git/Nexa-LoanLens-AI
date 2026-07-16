@@ -1,0 +1,5 @@
+[deploy]
+startCommand = "bash setup.sh"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
